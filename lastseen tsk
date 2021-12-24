@@ -1,0 +1,44 @@
+test last seen js
+ <script type="text/javascript">
+    function ladate(){
+        const d = new Date();
+        hh = ('0'+d.getHours()).slice(-2);
+        nn = ('0'+d.getMinutes()).slice(-2);
+        dd = ('0'+d.getDate()).slice(-2);
+        mm = ('0'+d.getMonth()).slice(-2);
+        yyyy = d.getFullYear(); 
+        var inimentah = hh+':'+nn+' in '+dd+'/'+mm+'/'+yyyy; 
+        var waktuini = JSON.stringify(inimentah);
+            localStorage.setItem("lastseen",waktuini);
+    }
+    var getladate = localStorage.getItem("lastseen");
+function addco1(){
+        var cco1 = localStorage.getItem("co1"); var co1 = JSON.parse(cco1)+1; 
+    document.getElementById("co1").innerHTML = co1;
+    localStorage.setItem("co1",co1)
+}
+function savedone1(){
+    ladate(); document.getElementById("dlast1").innerHTML = getladate;
+    addco1();
+    }
+function resco1(){  
+       localStorage.setItem("co1",-1); addco1();
+}
+ </script>
+ Task : 
+ <table>
+     <tr>
+        <td>Assignment</td>
+        <td>Action</td>
+        <td>information</td>
+    </tr>
+     <tr>
+        <td>Internship</td>
+        <td><button onclick="savedone1()">Done</button>
+            <br><button onclick="resco1()">reset-count</button>
+        </td>
+        <td>last update : <u id='dlast1'></u>
+            <br>count  : <u id='co1'>0</u>
+        </td>
+    </tr>
+ </table>
