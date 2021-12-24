@@ -1,0 +1,19 @@
+test last seen js
+ <script type="text/javascript">
+        const d = new Date();
+    hh = ('0'+d.getHours()).slice(-2);
+    nn = ('0'+d.getMinutes()).slice(-2);
+    dd = ('0'+d.getDate()).slice(-2);
+    mm = ('0'+d.getMonth()).slice(-2);
+    yyyy = d.getFullYear(); 
+    var inimentah = hh+':'+nn+' in '+dd+'/'+mm+'/'+yyyy; 
+    var waktuini = JSON.stringify(inimentah);
+    alert(waktuini);
+
+    localStorage.setItem("lastseen",waktuini);
+    alert('last seen in:'+localStorage.getItem("lastseen"));
+
+
+
+
+ </script>
